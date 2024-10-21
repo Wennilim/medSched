@@ -1,6 +1,16 @@
 import { CategorySearch } from "@/components/custom/CategorySearch"
+import { DoctorList } from "@/components/custom/DoctorList"
+import { getDoctorListApi } from "@/utils/api/getDoctorListApi";
+import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
+    const getDoctorListQuery = useQuery({
+        queryKey: ['getDotors'],
+        queryFn: () => getDoctorListApi(),
+        enabled: true,
+        staleTime: 0,
+    });
     return (
         <section>
             <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
@@ -22,16 +32,17 @@ export const Hero = () => {
                             quidem quam repellat.
                         </p>
 
-                        <a
-                            href="#"
+                        <Link
+                            to="#"
                             className="mt-8 inline-block rounded-xl bg-logo px-12 py-3 text-sm font-medium text-white transition hover:bg-hover focus:outline-none focus:ring focus:ring-yellow-400"
                         >
                             Find & Enquiry now
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
             <CategorySearch />
+            <DoctorList getQuery={getDoctorListQuery} />
         </section>
     )
 }

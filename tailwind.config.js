@@ -14,14 +14,23 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
+        "2xs":"280px",
         "xs": "360px",
         "2xl": "1400px",
       },
     },
     extend: {
+      screens: {
+        "2xs": "280px",
+        "xs": "360px",
+        "2xl": "1400px",
+      },
       colors: {
+        font: "#F89273FF",
         logo: "#FFA589",
         hover:"#ffb49d",
+        heroBg:"#FAD9CFFF",
+        categoryList:"#FEFAF9FF",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
